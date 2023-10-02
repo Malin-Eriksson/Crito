@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+
+<div class="container about">
+        <div>
+            <img class="wavy_lines" src="images/background-wavy-lines-white.svg"/>
+            
+            @{
+                var aboutImage = Model.Value<MediaWithCrops>("aboutFeaturedPersonImage");
+                if (aboutImage != null)
+                {
+                    <img class="founder_img"  src="@aboutImage.MediaUrl()" />
+                }
+            }
+            <div class="info_founder">
+                <div class="founder_name">
+                    <h4>@Model.Value("aboutFeaturedPersonName"), </h4> <p class="orange"> &nbsp;@Model.Value("aboutFeaturedPersonRole")</p>
+                </div>
+                <p>"@Model.Value("aboutFeaturedPersonQuote")"</p>
+            </div>
+        </div>
+        <div class="about_company">
+            <p class="orange">@Model.Value("aboutSectionTitle")</p>
+            <h2>@Model.Value("aboutHeading")</h2>
+            <p>@Model.Value("aboutDescription")</p>
+                <div>
+                    <a href="@Model.Value("aboutButtonLink")"><button class="black-btn">@Model.Value("aboutButtonText")&nbsp;<i class="fa-solid fa-arrow-up-right"></i></button></a>
+                    <a href="@Model.Value("aboutVideoLink")"><button class="white-btn"><i class="play fa-thin fa-circle-play"></i> Intro Video</button></a>
+                </div>
+        </div>
+
+    </div>
+    
