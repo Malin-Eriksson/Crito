@@ -1,0 +1,57 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = "_Layout.cshtml";
+
+    var contactForm = new Crito.Models.ContactForm();
+}
+
+@await Html.PartialAsync("_BreadcrumbSection")
+
+
+    <div class="contact-info container">
+        <div class="infobox">
+            <div class="icon-background"><i class="fa-solid fa-location-dot"></i></div>
+            <h4>Visit Us</h4>
+            <div class="contact-info">
+                <p>@Model.Value("contactInformationStreetAddress")</p>
+                <p>@Model.Value("contactInformationPostalCodePlusCity")</p>
+            </div>
+        </div>
+        <div class="infobox">
+            <div class="icon-background"><i class="fa-solid fa-phone"></i></div>
+            <h4>Call Us</h4>
+            <div class="contact-info">
+                <p>@Model.Value("contactInformationPhoneNumber1")</p>
+                <p>@Model.Value("contactInformationPhoneNumber2")</p>
+            </div>
+        </div>
+        <div class="infobox">
+            <div class="icon-background"><i class="fa-solid fa-envelope"></i></div>
+            <h4>Email Us</h4>
+            <div class="contact-info">
+                <p>@Model.Value("contactInformationEmail1")</p>
+                <p>@Model.Value("contactInformationEmail2")</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contact-form container">
+        <h2>Leave us a message for any information</h2>
+        <form asp-controller="Contact" asp-action="Index" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <input asp-for="@contactForm.Name" type="text" placeholder="Name">
+            <input asp-for="@contactForm.Email" type="email" placeholder="Email">
+            <textarea asp-for="@contactForm.Message" placeholder="Your message"></textarea>
+            <div>
+                <button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="map">
+        <iframe src="@Model.Value("googleMapsURL")" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
