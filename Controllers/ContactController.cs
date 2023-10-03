@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Crito.Models;
+using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -16,12 +17,12 @@ namespace Crito.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult Index(ContactForm contactForm)
         {
             if (!ModelState.IsValid)
                 return CurrentUmbracoPage();
 
-            return RedirectToCurrentUmbracoPage();
+            return LocalRedirect(contactForm.RedirectUrl ?? "/");
         }
     }
 }
