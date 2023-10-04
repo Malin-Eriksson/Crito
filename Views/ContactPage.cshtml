@@ -10,50 +10,58 @@
 @await Html.PartialAsync("_BreadcrumbSection")
 
 
-    <div class="contact-info container">
+    <div class="contactsection container">
         <div class="infobox">
             <div class="icon-background"><i class="fa-solid fa-location-dot"></i></div>
-            <h4>Visit Us</h4>
             <div class="contact-info">
+                <h4>Visit Us</h4>
                 <p>@Model.Value("contactInformationStreetAddress")</p>
                 <p>@Model.Value("contactInformationPostalCodePlusCity")</p>
             </div>
         </div>
         <div class="infobox">
             <div class="icon-background"><i class="fa-solid fa-phone"></i></div>
-            <h4>Call Us</h4>
             <div class="contact-info">
+                <h4>Call Us</h4>
                 <p>@Model.Value("contactInformationPhoneNumber1")</p>
                 <p>@Model.Value("contactInformationPhoneNumber2")</p>
             </div>
         </div>
         <div class="infobox">
             <div class="icon-background"><i class="fa-solid fa-envelope"></i></div>
-            <h4>Email Us</h4>
             <div class="contact-info">
+                <h4>Email Us</h4>
                 <p>@Model.Value("contactInformationEmail1")</p>
                 <p>@Model.Value("contactInformationEmail2")</p>
             </div>
         </div>
     </div>
 
+<div class=" container">
+	<div class="contact-form">
+		<h2>Leave us a message for any information</h2>
 
-    <div class="contact-form container">
-        <h2>Leave us a message for any information</h2>
+		@using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
+		{
+			<div asp-validation-summary="All"></div>
 
-        @using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
-        {
-            <div asp-validation-summary="All"></div>
+			<input class="input" asp-for="@contactForm.Name" type="text" placeholder="Name" onkeyup="validateText(event)" id="Name">
+			@*<small class="text-danger"><span asp-validation-for="Name"></span></small>*@
 
-            <input asp-for="@contactForm.Name" type="text" placeholder="Name">
-            <input asp-for="@contactForm.Email" type="email" placeholder="Email">
-            <textarea asp-for="@contactForm.Message" placeholder="Your message"></textarea>
-            <div>
-                <button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
-            </div>
-        }
+			<input class="input" asp-for="@contactForm.Email" type="email" placeholder="Email" onkeyup="validateEmail(event)" id="Email">
+			@*<small class="text-danger"><span asp-validation-for="Email"></span></small>*@
+
+			<textarea class="input" asp-for="@contactForm.Message" placeholder="Your message" onkeyup="validateText(event)" id="Message"></textarea>
+			@*<small class="text-danger"><span asp-validation-for="Message"></span></small>*@
+
+			<div>
+				<button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
+			</div>
+		}
+	</div>
     </div>
+
     
     <div class="map">
-        <iframe src="@Model.Value("googleMapsURL")" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="@Model.Value("googleMapsURL")" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
