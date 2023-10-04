@@ -37,28 +37,28 @@
         </div>
     </div>
 
-<div class=" container">
-	<div class="contact-form">
-		<h2>Leave us a message for any information</h2>
+    <div class=" container">
+	    <div class="contact-form">
+		    <h2>Leave us a message for any information</h2>
 
-		@using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
-		{
-			<div asp-validation-summary="All"></div>
+		    @using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
+		    {
+			    <div asp-validation-summary="All"></div>
 
-			<input class="input" asp-for="@contactForm.Name" type="text" placeholder="Name" onkeyup="validateText(event)" id="Name">
-			@*<small class="text-danger"><span asp-validation-for="Name"></span></small>*@
+			    <input class="input" asp-for="@contactForm.Name" type="text" placeholder="Name" onkeyup="validateText(event)" id="Name">
+			    @*<small class="text-danger"><span asp-validation-for="Name"></span></small>*@
 
-			<input class="input" asp-for="@contactForm.Email" type="email" placeholder="Email" onkeyup="validateEmail(event)" id="Email">
-			@*<small class="text-danger"><span asp-validation-for="Email"></span></small>*@
+			    <input class="input" asp-for="@contactForm.Email" type="email" placeholder="Email" onkeyup="validateEmail(event)" id="Email">
+			    @*<small class="text-danger"><span asp-validation-for="Email"></span></small>*@
 
-			<textarea class="input" asp-for="@contactForm.Message" placeholder="Your message" onkeyup="validateText(event)" id="Message"></textarea>
-			@*<small class="text-danger"><span asp-validation-for="Message"></span></small>*@
+			    <textarea class="input" asp-for="@contactForm.Message" placeholder="Your message" onkeyup="validateText(event)" id="Message"></textarea>
+			    @*<small class="text-danger"><span asp-validation-for="Message"></span></small>*@
 
-			<div>
-				<button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
-			</div>
-		}
-	</div>
+			    <div>
+				    <button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
+			    </div>
+		    }
+	    </div>
     </div>
 
     
