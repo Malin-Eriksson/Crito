@@ -45,14 +45,17 @@
 		    {
 			    <div asp-validation-summary="All"></div>
 
-			    <input class="input" asp-for="@contactForm.Name" type="text" placeholder="Name" onkeyup="validateText(event)" id="Name">
-			    @*<small class="text-danger"><span asp-validation-for="Name"></span></small>*@
+			    <input class="input" asp-for="@contactForm.Name" type="text" placeholder="Name" onkeyup="validateName()" id="name-field">
+			    <small class="text-danger"><span id="name-error"></span></small>
 
-			    <input class="input" asp-for="@contactForm.Email" type="email" placeholder="Email" onkeyup="validateEmail(event)" id="Email">
-			    @*<small class="text-danger"><span asp-validation-for="Email"></span></small>*@
+			    <input class="input" asp-for="@contactForm.Email" type="email" placeholder="Email" onkeyup="validateEmail()" id="email-field">
+			    <small class="text-danger"><span id="email-error"></span></small>
 
-			    <textarea class="input" asp-for="@contactForm.Message" placeholder="Your message" onkeyup="validateText(event)" id="Message"></textarea>
-			    @*<small class="text-danger"><span asp-validation-for="Message"></span></small>*@
+                <textarea class="input" asp-for="@contactForm.Message" placeholder="Your message" onkeyup="validateText()" id="text-field"></textarea>
+                <small class="text-danger"><span id="text-error"></span></small>
+
+ 
+
 
 			    <div>
 				    <button type="submit" class="dark-theme-btn">Send Message <i class="fa-solid fa-arrow-up-right"></i></button>
