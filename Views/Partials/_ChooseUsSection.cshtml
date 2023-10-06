@@ -1,0 +1,29 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+
+<!-- WHY CHOOSE US -->
+<div class="choose_us">
+    <div class="container">
+        <div>
+            <p class="orange">@Model.Value("chooseUsTitle")</p>
+            <h2>@Model.Value("chooseUsHeading")</h2>
+            
+            @Html.GetBlockListHtml(Model.ChooseUsSellpoints)
+        </div>   
+        <div>
+        
+            @{
+                var chooseUs = Model.Value<MediaWithCrops>("chooseUsImage");
+                if (chooseUs != null)
+                {
+                    <img class="choose_us_img"  src="@chooseUs.MediaUrl()" />
+                }
+            }
+        </div>  
+        <div class="color_block">&nbsp;</div>
+    </div> 
+</div>
+<!-- END WHY CHOOSE US -->

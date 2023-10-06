@@ -1,0 +1,62 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+
+	
+	var itemsPerPage = 4;
+    var pageNumber = 1;
+    
+    if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
+    {
+        pageNumber = 1;
+    }
+
+	var selection = Umbraco.Content(Guid.Parse("9f7b6d9c-138a-43f6-a149-d5004095a18a"))
+    .ChildrenOfType("projectItemPage")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate).ToList();
+    
+
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((pageNumber - 1) * itemsPerPage).Take(itemsPerPage);
+}
+
+@await Html.PartialAsync("_BreadcrumbSection")
+
+<div class="case-studies container">
+    <p class="orange">Projects & Case Studies</p>
+    <h2>Let's Look at Our Global Projects</h2>
+    <div class="case-studies container">
+            <div class="projects">
+    
+                @if (pagedItems != null) 
+                {
+                    foreach (var item in pagedItems)
+                	{
+                        var url = item.Url();
+                	    var image = item.Value<IPublishedContent>("projectItemImage");
+                	    var title = item.Name();
+                	
+                    	<a href="@url" class="project">
+                            <img src="@image?.Url()"/> 
+                            <h3>@title</h3>
+                            <div class="content-right">
+                                <button class="white-btn">Read More <i class="fa-light fa-arrow-up-right"></i></button>
+                            </div>
+                        </a>
+                	}
+                }
+            </div>
+        </div>
+    </div>
+    <div class="content-center">
+        <button class="black-btn"><a href="#">All Recent Projects <i class="fa-light fa-arrow-up-right"></i></a></button>
+    </div>
+</div> 
+        
+        
+        
+        
+        
