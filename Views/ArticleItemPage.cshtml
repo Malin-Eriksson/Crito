@@ -2,8 +2,11 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticleItemPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.PublishedContent;
+
 @{
 	Layout = "_Layout.cshtml";
+	
+	
     var image = Model.Value<IPublishedContent>("articleImage");
     
     
@@ -25,7 +28,10 @@
     var pagedItems = selection?.Skip((pageNumber - 1) * itemsPerPage).Take(itemsPerPage);
 }
 
+
 @await Html.PartialAsync("_BreadcrumbSection")
+
+
 
 <div class="main container">
     <div class="main-article">

@@ -26,8 +26,8 @@
 @await Html.PartialAsync("_BreadcrumbSection")
 
 <div class="case-studies container">
-    <p class="orange">Projects & Case Studies</p>
-    <h2>Let's Look at Our Global Projects</h2>
+    <p class="orange">@Model.Value("projectsCaseStudiesTitle")</p>
+    <h2>@Model.Value("projectsCaseStudiesHeading")</h2>
     <div class="case-studies container">
             <div class="projects">
     
@@ -55,7 +55,7 @@
 </div> 
         
 <div class="content-center">
-    <button class="black-btn"><a href="#">All Recent Projects <i class="fa-light fa-arrow-up-right"></i></a></button>
+    <button class="black-btn"><a href="@Model.Value("projectsCaseStudiesButtonLink")">@Model.Value("projectsCaseStudiesButtonText") <i class="fa-light fa-arrow-up-right"></i></a></button>
 </div>
         
         
