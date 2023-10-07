@@ -39,7 +39,7 @@
 
     <div class=" container">
 	    <div class="contact-form">
-		    <h2>Leave us a message for any information</h2>
+		    <h2>@Model.Value("contactFormHeading")</h2>
 
 		    @using (Html.BeginUmbracoForm("Index", "Contact", FormMethod.Post))
 		    {

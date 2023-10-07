@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+    var content = (ContentModels.TestimonialReviews)Model.Content;
+    
+   var image = content.Value<IPublishedContent>("testimonialImage"); 
+}
+
+<div class="client-review">
+    <div class="orange stars">
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+        <i class="fa-sharp fa-solid fa-star"></i>
+    </div>
+    <p>"@content.Value("testimonialReviewText")"</p>
+    <div class="client-info">
+        
+        
+        
+        <img src="@image?.Url()"/>
+        <div>
+            <h3>@content.Value("testimonialClientName")</h3>
+            <p class="orange">@content.Value("testimonialClientRole"),&nbsp;@content.Value("testimonialClientCompany")</p>
+        </div>
+    </div>
+</div>

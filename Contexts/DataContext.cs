@@ -15,6 +15,7 @@ namespace Crito.Contexts
         public DbSet<SubscriberEntity> Subscribers { get; set; }
 
         public DbSet<ContactFormEntity> ContactForms { get; set; }
+
     }
 }
 

@@ -47,4 +47,7 @@ function validateEmail() {
     emailError.innerHTML = "";
     return true;
 }
+
+
+
                         

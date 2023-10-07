@@ -15,7 +15,10 @@ namespace Crito.Services
 
         public async Task AddSubscriberAsync(NewsletterForm newsletterForm)
         {
-            _context.Subscribers.Add(new SubscriberEntity { Email = newsletterForm.Email });
+            _context.Subscribers.Add(new SubscriberEntity 
+            { 
+                Email = newsletterForm.Email 
+            });
             await _context.SaveChangesAsync();
         }
     }

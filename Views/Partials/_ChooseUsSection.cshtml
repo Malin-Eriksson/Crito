@@ -11,7 +11,10 @@
             <p class="orange">@Model.Value("chooseUsTitle")</p>
             <h2>@Model.Value("chooseUsHeading")</h2>
             
-            @Html.GetBlockListHtml(Model.ChooseUsSellpoints)
+            <div class="info-boxes">
+                @Html.GetBlockListHtml(Model.ChooseUsDetails)
+            </div>
+            
         </div>   
         <div>
         
