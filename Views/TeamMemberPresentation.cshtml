@@ -9,12 +9,14 @@
 	
 }
 
+@await Html.PartialAsync("_BreadcrumbSection")
+
 
 
 <div class="team-member-presentation container">
     <img src="@image.Url()" />
     <h2>@Model.Name</h2>
-    <p>@Model.Value("teamMemberRole")</p>
+    <p class="orange">@Model.Value("teamMemberRole")</p>
     
-    <p>@Model.Value("teamMemberDescription")</p>
+    <p class="team-member-description">@Model.Value("teamMemberDescription")</p>
 </div>

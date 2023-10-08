@@ -219,7 +219,7 @@ header .container .menu .main-menu nav a.active::after, header .container .menu 
 .features .container .test .infoboxes .umb-block-list .infobox i {
   font-size: 30px;
   margin-bottom: 30px;
-  color: #E4E4E4;
+  color: #191919;
 }
 
 .about {
@@ -320,6 +320,13 @@ header .container .menu .main-menu nav a.active::after, header .container .menu 
   height: 50px;
   width: 50px;
   margin-top: 20px;
+}
+.services .container .service-info .umb-block-list .service-box:hover {
+  background-color: #F9D783;
+}
+.services .container .service-info .umb-block-list .service-box:hover button {
+  background-color: white;
+  color: #191919;
 }
 .services .container .content-center {
   display: flex;
@@ -1037,33 +1044,62 @@ header .container .menu .main-menu nav a.active::after, header .container .menu 
   width: 100%;
 }
 
-.team-members {
+.team-page .team-members {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 200px;
+  margin-bottom: 150px;
 }
-.team-members a {
+.team-page .team-members a {
   color: #191919;
   text-decoration: none;
 }
-.team-members img {
+.team-page .team-members img {
   max-width: 250px;
 }
-.team-members h3 {
+.team-page .team-members h3 {
   font-family: "DM Sans", sans-serif;
   font-size: 22px;
   font-weight: bold;
 }
+.team-page .item-pagination .item-link {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid lightgray;
+  color: #191919;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+.team-page .item-pagination .item-link:hover {
+  background-color: #191919;
+  border: 1px solid #191919;
+  color: white;
+}
+.team-page .item-pagination .item-link.active {
+  background-color: #191919;
+  border: 1px solid #191919;
+  color: white;
+}
 
 .team-member-presentation {
   text-align: center;
+  margin-top: 200px;
+  margin-bottom: 150px;
 }
 .team-member-presentation img {
-  max-width: 500px;
+  max-width: 400px;
+  margin-top: 200px;
 }
 .team-member-presentation h2 {
   font-family: "DM Sans", sans-serif;
-  font-size: 45px;
+  font-size: 35px;
   font-weight: bold;
+  margin: 25px;
+}
+.team-member-presentation .team-member-description {
+  max-height: 60%;
 }
 
 .news {
